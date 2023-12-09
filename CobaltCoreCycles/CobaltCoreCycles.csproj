@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>ITRsCycles</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="CobaltCore">
+        <HintPath>G:\SteamLibrary\steamapps\common\Cobalt Core\CobaltCore.dll</HintPath>
+      </Reference>
+      <Reference Include="CobaltCoreModding.Definitions">
+        <HintPath>..\..\..\..\Downloads\temp\CobaltCoreModLauncher\CobaltCoreModding.Definitions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+        <HintPath>..\..\..\..\Downloads\temp\CobaltCoreModLauncher\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Sprites\Cards\cardframe.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Sprites\Cards\panel.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Sprites\Cards\temp.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Sprites\Char\mini00.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Sprites\Char\neutral00.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="xcopy /Y &quot;$(TargetPath)&quot; &quot;G:\SteamLibrary\steamapps\common\Cobalt Core\ModLibrary\ITRsCycles&quot;&#xA;" />
+    </Target>
+</Project>
