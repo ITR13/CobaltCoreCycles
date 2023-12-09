@@ -41,12 +41,10 @@ public abstract class BaseCycle : Card
         for (var i = 0; i < MaxCycles; i++)
         {
             var actions = actionGetters[i](s, c);
-            if (i != Cycle)
+            for (var j = 0; j < actions.Count; j++)
             {
-                for (var j = 0; j < actions.Count; j++)
-                {
-                    actions[j].disabled = true;
-                }
+                if (actions[j] is AAttack attack) attack.damage = GetDmg(s, attack.damage);
+                actions[j].disabled = Cycle != i;
             }
 
             list.AddRange(actions);
