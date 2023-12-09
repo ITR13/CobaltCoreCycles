@@ -18,22 +18,26 @@ public class ChargeMode : BaseCycle
     }
 
     private const string Cycle0Desc =
-        "<c=disabledText>Attack for {0} and reset charge.</c>\nEach time this card is drawn, add <c=keyword>{1}</c>";
+        "<c=disabledText>Attack for {0}, Charge=0.</c>\nOn Draw: add <c=keyword>{1}</c>";
 
     private const string Cycle1Desc =
-        "Attack for {0} and reset charge.<c=disabledText>\nEach time this card is drawn, add </c><c=keyword>{1}</c>";
+        "Attack for {0}, Charge=0.\n<c=disabledText>On Draw: add </c><c=keyword>{1}</c>";
 
     private const string Cycle0DescA =
-        "<c=disabledText>Attack for {0} and reset charge.</c>Draw 2.\nEach time this card is drawn, add <c=keyword>{1}</c>";
+        "<c=disabledText>Attack for {0}, Charge=0.</c>\nDraw <c=keyword>2</c>.\nOn Draw: add <c=keyword>{1}</c>";
 
     private const string Cycle1DescA =
-        "Attack for {0} and reset charge.<c=disabledText>Draw 2.\nEach time this card is drawn, add </c><c=keyword>{1}</c>";
+        "Attack for {0}, Charge=0.\n<c=disabledText>Draw <c=keyword>2</c>.\nOn Draw: add </c><c=keyword>{1}</c>";
 
     protected override CardData CardData => new()
     {
         cost = upgrade == Upgrade.B ? 1 : 0,
         exhaust = upgrade == Upgrade.B,
-        description = string.Format(Cycle == 0 ? Cycle0Desc : Cycle1Desc, Charge, ChargeAmount),
+        description = string.Format(
+            upgrade == Upgrade.A ? (Cycle == 0 ? Cycle0DescA : Cycle1DescA) : (Cycle == 0 ? Cycle0Desc : Cycle1Desc),
+            Charge,
+            ChargeAmount
+        ),
     };
 
     protected override List<CardAction> ActionsA(State s, Combat c)
