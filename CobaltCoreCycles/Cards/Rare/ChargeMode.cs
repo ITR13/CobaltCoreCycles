@@ -11,23 +11,31 @@ public class ChargeMode : BaseCycle
 
     public override void OnDraw(State s, Combat c)
     {
-        if (Cycle == 0 || upgrade == Upgrade.B)
+        if (Cycle == 0)
         {
             Charge += ChargeAmount;
         }
     }
 
+    public override void AfterWasPlayed(State state, Combat c)
+    {
+        if (Cycle == 1)
+        {
+            Charge = 0;
+        }
+    }
+
     private const string Cycle0Desc =
-        "<c=disabledText>Attack for {0}, Charge=0.</c>\nOn Draw: add <c=keyword>{1}</c>";
+        "<c=disabledText>Attack for {0}, Charge=0.</c>\nOn Draw: Charge+=<c=keyword>{1}</c>";
 
     private const string Cycle1Desc =
-        "Attack for {0}, Charge=0.\n<c=disabledText>On Draw: add </c><c=keyword>{1}</c>";
+        "Attack for {0}, Charge=0.\n<c=disabledText>On Draw: Charge+=</c><c=keyword>{1}</c>";
 
     private const string Cycle0DescA =
-        "<c=disabledText>Attack for {0}, Charge=0.</c>\nDraw <c=keyword>2</c>.\nOn Draw: add <c=keyword>{1}</c>";
+        "<c=disabledText>Attack for {0}, Charge=0.</c>\nDraw <c=keyword>2</c>.\nOn Draw: Charge+=<c=keyword>{1}</c>";
 
     private const string Cycle1DescA =
-        "Attack for {0}, Charge=0.\n<c=disabledText>Draw <c=keyword>2</c>.\nOn Draw: add </c><c=keyword>{1}</c>";
+        "Attack for {0}, Charge=0.\n<c=disabledText>Draw <c=keyword>2</c>.\nOn Draw: Charge+=</c><c=keyword>{1}</c>";
 
     protected override CardData CardData => new()
     {
