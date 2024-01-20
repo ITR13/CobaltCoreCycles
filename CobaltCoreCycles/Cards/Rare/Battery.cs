@@ -9,12 +9,23 @@ public class Battery : BaseCycle
 
     protected override CardData CardData => new()
     {
-        cost = upgrade == Upgrade.B ? 0 : 3,
+        cost = upgrade == Upgrade.B ? 0 : 2,
         exhaust = true,
     };
 
     protected override List<CardAction> ActionsA(State s, Combat c)
     {
+        if (upgrade != Upgrade.None)
+        {
+            return new List<CardAction>
+            {
+                new ADrawCard
+                {
+                    count = 1,
+                }
+            };
+        }
+
         return new List<CardAction>
         {
         };
@@ -26,7 +37,7 @@ public class Battery : BaseCycle
         {
             new AEnergy
             {
-                changeAmount = 6,
+                changeAmount = upgrade == Upgrade.B ? 5 : 8,
             },
         };
         if (upgrade == Upgrade.A)
