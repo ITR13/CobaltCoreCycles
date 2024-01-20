@@ -5,8 +5,15 @@ public class FairUnfair : Artifact
 {
     public int Cycle;
 
-    public override void OnCombatStart(State state, Combat combat)
+    public override int? GetDisplayNumber(State s)
     {
+        return Cycle / 2;
+    }
+
+    public override void OnTurnStart(State state, Combat combat)
+    {
+        if (combat.turn != 1) return;
+
         var doubleCycle = state.artifacts.Any(a => a is DoubleCycle);
 
         Cycle += doubleCycle ? 1 : 2;
@@ -18,6 +25,7 @@ public class FairUnfair : Artifact
                     status = Status.powerdrive,
                     statusAmount = 2,
                     targetPlayer = (Cycle & 0b10) == 0,
+                    artifactPulse = Key(),
                 }
             );
     }

@@ -4,12 +4,20 @@
 public class PowerCycle : Artifact
 {
     public int Cycle;
-    public override void OnCombatStart(State state, Combat combat)
+    
+    public override int? GetDisplayNumber(State s)
     {
+        return Cycle / 2;
+    }
+    
+    public override void OnTurnStart(State state, Combat combat)
+    {
+        if (combat.turn != 1) return;
+        
         var doubleCycle = state.artifacts.Any(a => a is DoubleCycle);
 
-        Cycle += 1;
-        if (Cycle > (doubleCycle ? 1 : 0))
+        Cycle += (doubleCycle ? 2 : 1);
+        if (Cycle > 1)
         {
             state.GetCurrentQueue().QueueImmediate(new AStatus
             {
@@ -18,7 +26,7 @@ public class PowerCycle : Artifact
                 targetPlayer = true,
             });
         }
-        if (Cycle >= (doubleCycle ? 4 : 2))
+        if (Cycle >= 4)
         {
             Cycle = 0;
         }
