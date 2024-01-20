@@ -14,8 +14,7 @@ public abstract class BaseCycle : Card
 
     public override void AfterWasPlayed(State state, Combat c)
     {
-        var artifacts = new HashSet<Type>(state.artifacts.Select(artifact => artifact.GetType()));
-        if (artifacts.Contains(typeof(DoubleCycle)) && !IsDoubled)
+        if (state.artifacts.Any(a => a is DoubleCycle) && !IsDoubled)
         {
             IsDoubled = true;
             return;
