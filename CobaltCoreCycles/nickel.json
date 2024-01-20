@@ -1,0 +1,14 @@
+{
+  "UniqueName": "ITR.Cycles",
+  "Version": "1.0.0",
+  "RequiredApiVersion": "0.1.0",
+  "ModType": "EasyLoader",
+  "EntryPointAssembly": "ITRsCycles.dll",
+  "EntryPointType": "CobaltCoreCycles.Main",
+  "Dependencies": [
+    {
+      "UniqueName": "ITR.EasyLoader",
+      "Version": "1.0.0"
+    }
+  ]
+}
