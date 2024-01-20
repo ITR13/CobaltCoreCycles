@@ -1,9 +1,12 @@
-﻿namespace CobaltCoreCycles;
+﻿using CobaltCoreCycles.Artifacts;
+
+namespace CobaltCoreCycles;
 
 [Serializable]
 public abstract class BaseCycle : Card
 {
     public int Cycle;
+    public bool IsDoubled;
     protected abstract int MaxCycles { get; }
     protected Spr[]? Sprites;
 
@@ -11,7 +14,15 @@ public abstract class BaseCycle : Card
 
     public override void AfterWasPlayed(State state, Combat c)
     {
+        var artifacts = new HashSet<Type>(state.artifacts.Select(artifact => artifact.GetType()));
+        if (artifacts.Contains(typeof(DoubleCycle)) && !IsDoubled)
+        {
+            IsDoubled = true;
+            return;
+        }
+
         Cycle = (Cycle + 1) % MaxCycles;
+        IsDoubled = false;
     }
 
     protected virtual List<CardAction> ActionsA(State s, Combat c)
