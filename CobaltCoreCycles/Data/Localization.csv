@@ -1,6 +1,8 @@
 key,en
 cycles/name,Cycles
 cycles/desc,Needs no introduction
+cycles2/name,Also Cycles
+cycles2/desc,Huh...
 cards/cat,Cat
 cards/heated,Heated
 cards/magic,Magic
@@ -22,3 +24,13 @@ cards/onetwoshot,One-Two Shot
 cards/power,Power
 cards/serpentine,Serpentine
 cards/stunning,Stunning
+artifacts/assimilation_name,Assimilation
+artifacts/assimilation_desc,Are you sure you want to do this?
+artifacts/bonus_name,Bonus!
+artifacts/bonus_desc,Cycles between the following effects: Gain 3 Shield & Max Shield. Gain 3 Evade. Draw 3 cards.
+artifacts/doublecycle_name,Double Cycle
+artifacts/doublecycle_desc,Don’t increase cycle every other cycle.
+artifacts/fairunfair_name,Fair / Unfair
+artifacts/fairunfair_desc,Cycles between the following effects: You gain 2 PowerDrive. Your opponent gains 2 PowerDrive.
+artifacts/powercycle_name,Powercycle
+artifacts/powercycle_desc,Gives you 1 PowerDrive every 3 turns.
