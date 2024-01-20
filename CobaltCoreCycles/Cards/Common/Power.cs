@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Common;
 
-[CardMeta(rarity = Rarity.common, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.common, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class Power : BaseCycle
 {
     public override string Name() => "Powah";
@@ -17,24 +17,25 @@ public class Power : BaseCycle
     {
         return upgrade switch
         {
-            Upgrade.None => new List<CardAction> { new AAttack { damage = 1, } },
-            Upgrade.A => new List<CardAction>
-            {
+            Upgrade.None => [new AAttack { damage = 1, }],
+            Upgrade.A =>
+            [
                 new AStatus
                 {
                     status = Status.overdrive, statusAmount = 1,
                     targetPlayer = true,
                 },
-            },
-            Upgrade.B => new List<CardAction> { new AAttack { damage = 1, }, new AAttack { damage = 1, }, },
+
+            ],
+            Upgrade.B => [new AAttack { damage = 1, }, new AAttack { damage = 1, }],
             _ => throw new ArgumentOutOfRangeException()
         };
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AStatus
             {
                 status = Status.overdrive,
@@ -47,6 +48,7 @@ public class Power : BaseCycle
                 },
                 targetPlayer = true,
             },
-        };
+
+        ];
     }
 }

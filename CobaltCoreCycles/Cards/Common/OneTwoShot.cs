@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Common;
 
-[CardMeta(rarity = Rarity.common, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.common, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class OneTwoShot : BaseCycle
 {
     public override string Name() => "One-Two";
@@ -14,50 +14,56 @@ public class OneTwoShot : BaseCycle
 
     protected override List<CardAction> ActionsA(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AAttack
             {
                 damage = 0,
                 piercing = upgrade == Upgrade.B,
             },
+
             new AAttack
             {
                 damage = 1,
                 piercing = upgrade == Upgrade.B,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AAttack
             {
                 damage = 1,
                 piercing = upgrade == Upgrade.B,
             },
+
             new AAttack
             {
                 damage = 2,
                 piercing = upgrade == Upgrade.B,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsC(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AAttack
             {
                 damage = 2,
             },
+
             new AAttack
             {
                 damage = 3,
             },
-        };
+
+        ];
     }
 }

@@ -27,17 +27,17 @@ public abstract class BaseCycle : Card
 
     protected virtual List<CardAction> ActionsA(State s, Combat c)
     {
-        return new List<CardAction>();
+        return [];
     }
 
     protected virtual List<CardAction> ActionsB(State s, Combat c)
     {
-        return new List<CardAction>();
+        return [];
     }
 
     protected virtual List<CardAction> ActionsC(State s, Combat c)
     {
-        return new List<CardAction>();
+        return [];
     }
 
     public override List<CardAction> GetActions(State s, Combat c)

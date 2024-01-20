@@ -1,7 +1,7 @@
 ﻿namespace CobaltCoreCycles.Cards.Rare;
 
 [Serializable]
-[CardMeta(rarity = Rarity.rare, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.rare, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class ChargeMode : BaseCycle
 {
     public override string Name() => "Charge Mode";
@@ -52,28 +52,28 @@ public class ChargeMode : BaseCycle
     {
         if (upgrade == Upgrade.A)
         {
-            return new List<CardAction>
-            {
+            return
+            [
                 new ADrawCard
                 {
                     count = 2,
                 },
-            };
+
+            ];
         }
 
-        return new List<CardAction>
-        {
-        };
+        return [];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AAttack
             {
                 damage = Charge,
             },
-        };
+
+        ];
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Common;
 
-[CardMeta(rarity = Rarity.common, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.common, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class BamBamBam : BaseCycle
 {
     public override string Name() => "Bam! Bam! Bam!";
@@ -15,13 +15,14 @@ public class BamBamBam : BaseCycle
 
     protected override List<CardAction> ActionsA(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AAttack
             {
                 damage = 1,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)

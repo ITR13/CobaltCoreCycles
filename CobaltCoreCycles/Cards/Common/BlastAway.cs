@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Common;
 
-[CardMeta(rarity = Rarity.common, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.common, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class BlastAway : BaseCycle
 {
     public override string Name() => "Blast Away";
@@ -16,25 +16,27 @@ public class BlastAway : BaseCycle
     {
         return upgrade switch
         {
-            Upgrade.None => new List<CardAction> { new AAttack { damage = 2, } },
-            Upgrade.A => new List<CardAction>
-            {
+            Upgrade.None => [new AAttack { damage = 2, }],
+            Upgrade.A =>
+            [
                 new AStatus
                 {
                     status = Status.evade,
                     statusAmount = 3,
                     targetPlayer = true,
                 },
-            },
-            Upgrade.B => new List<CardAction>
-            {
+
+            ],
+            Upgrade.B =>
+            [
                 new AStatus
                 {
                     status = Status.shield,
                     statusAmount = 5,
                     targetPlayer = true,
                 },
-            },
+
+            ],
             _ => throw new ArgumentOutOfRangeException(),
         };
     }

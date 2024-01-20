@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Rare;
 
-[CardMeta(rarity = Rarity.rare, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.rare, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class Investment : BaseCycle
 {
     public override string Name() => "Investment";
@@ -15,20 +15,21 @@ public class Investment : BaseCycle
 
     protected override List<CardAction> ActionsA(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AHurt()
             {
                 hurtAmount = 1,
                 targetPlayer = true,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             upgrade != Upgrade.A
                 ? new AAttack
                 {
@@ -41,6 +42,7 @@ public class Investment : BaseCycle
                     statusAmount = 2,
                     targetPlayer = true,
                 },
-        };
+
+        ];
     }
 }

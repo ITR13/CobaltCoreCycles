@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Uncommon;
 
-[CardMeta(rarity = Rarity.uncommon, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.uncommon, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class Cat : BaseCycle
 {
     public override string Name() => "Cat";
@@ -14,36 +14,39 @@ public class Cat : BaseCycle
 
     protected override List<CardAction> ActionsA(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AStatus
             {
                 status = upgrade == Upgrade.A ? Status.perfectShield : Status.shield,
                 statusAmount = upgrade == Upgrade.A ? 1 : 3,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AStatus
             {
                 status = upgrade == Upgrade.B ? Status.timeStop : Status.evade,
                 statusAmount = 3,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsC(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AAttack
             {
                 damage = 3,
             },
-        };
+
+        ];
     }
 }

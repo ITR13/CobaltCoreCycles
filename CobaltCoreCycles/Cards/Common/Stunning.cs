@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Common;
 
-[CardMeta(rarity = Rarity.common, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.common, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class Stunning : BaseCycle
 {
     public override string Name() => "Stunning!";
@@ -14,37 +14,40 @@ public class Stunning : BaseCycle
 
     protected override List<CardAction> ActionsA(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AAttack()
             {
                 damage = 0,
                 stunEnemy = true,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AAttack
             {
                 damage = 3,
                 stunEnemy = upgrade == Upgrade.B,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsC(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AAttack
             {
                 damage = 2,
                 stunEnemy = true,
             },
-        };
+
+        ];
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Rare;
 
-[CardMeta(rarity = Rarity.rare, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.rare, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class Battery : BaseCycle
 {
     public override string Name() => "Battery";
@@ -17,18 +17,16 @@ public class Battery : BaseCycle
     {
         if (upgrade != Upgrade.None)
         {
-            return new List<CardAction>
-            {
+            return
+            [
                 new ADrawCard
                 {
                     count = 1,
-                }
-            };
+                },
+            ];
         }
 
-        return new List<CardAction>
-        {
-        };
+        return [];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)

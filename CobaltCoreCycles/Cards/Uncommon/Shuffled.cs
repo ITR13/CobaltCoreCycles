@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Uncommon;
 
-[CardMeta(rarity = Rarity.uncommon, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.uncommon, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class Shuffled : BaseCycle
 {
     public override string Name() => "Shuffled";
@@ -39,11 +39,12 @@ public class Shuffled : BaseCycle
 
     protected override List<CardAction> ActionsB(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AReverseHand
             {
             },
-        };
+
+        ];
     }
 }

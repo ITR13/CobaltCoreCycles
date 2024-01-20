@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Uncommon;
 
-[CardMeta(rarity = Rarity.uncommon, upgradesTo = new[] { Upgrade.A, Upgrade.B, (Upgrade)3 })]
+[CardMeta(rarity = Rarity.uncommon, upgradesTo = [Upgrade.A, Upgrade.B, (Upgrade)3])]
 public class Magic : BaseCycle
 {
     public override string Name() => "Magic";
@@ -17,50 +17,56 @@ public class Magic : BaseCycle
     {
         return upgrade switch
         {
-            Upgrade.None => new List<CardAction>
-            {
+            Upgrade.None =>
+            [
                 new AStatus
                 {
                     status = Status.shard,
                     statusAmount = 1,
                     targetPlayer = true,
                 },
+
                 new ADrawCard
                 {
                     count = 1,
                 },
-            },
-            Upgrade.A => new List<CardAction>
-            {
+
+            ],
+            Upgrade.A =>
+            [
                 new AStatus
                 {
                     status = Status.shard,
                     statusAmount = 3,
                     targetPlayer = true,
                 },
-            },
-            Upgrade.B => new List<CardAction>
-            {
+
+            ],
+            Upgrade.B =>
+            [
                 new AStatus
                 {
                     status = Status.shard,
                     statusAmount = 3,
                     targetPlayer = true,
                 },
-            },
-            (Upgrade)3 => new List<CardAction>
-            {
+
+            ],
+            (Upgrade)3 =>
+            [
                 new AStatus
                 {
                     status = Status.shard,
                     statusAmount = 3,
                     targetPlayer = true,
                 },
+
                 new ADrawCard
                 {
                     count = 1,
                 },
-            },
+
+            ],
             _ => throw new ArgumentOutOfRangeException()
         };
     }
@@ -69,64 +75,73 @@ public class Magic : BaseCycle
     {
         return upgrade switch
         {
-            Upgrade.None => new List<CardAction>
-            {
+            Upgrade.None =>
+            [
                 new AAttack
                 {
                     damage = 1,
                 },
+
                 new AAttack
                 {
                     shardcost = 1,
                     damage = 2,
                 },
-            },
-            Upgrade.A => new List<CardAction>
-            {
+
+            ],
+            Upgrade.A =>
+            [
                 new AAttack
                 {
                     shardcost = 1,
                     damage = 2,
                 },
+
                 new AAttack
                 {
                     shardcost = 1,
                     damage = 2,
                 },
+
                 new AAttack
                 {
                     shardcost = 1,
                     damage = 2,
                 },
-            },
-            Upgrade.B => new List<CardAction>
-            {
+
+            ],
+            Upgrade.B =>
+            [
                 new AStatus
                 {
                     status = Status.corrode,
                     statusAmount = 1,
                     shardcost = 1,
                 },
+
                 new AStatus
                 {
                     status = Status.corrode,
                     statusAmount = 1,
                     shardcost = 2,
                 },
-            },
-            (Upgrade)3 => new List<CardAction>
-            {
+
+            ],
+            (Upgrade)3 =>
+            [
                 new AStatus
                 {
                     status = Status.shard,
                     statusAmount = 1,
                     targetPlayer = true,
                 },
+
                 new ADrawCard
                 {
                     count = 3,
                 },
-            },
+
+            ],
             _ => throw new ArgumentOutOfRangeException()
         };
     }

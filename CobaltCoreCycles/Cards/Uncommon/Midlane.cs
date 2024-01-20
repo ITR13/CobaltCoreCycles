@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Uncommon;
 
-[CardMeta(rarity = Rarity.uncommon, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.uncommon, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class Midlane : BaseCycle
 {
     public override string Name() => "Midlane";
@@ -15,24 +15,26 @@ public class Midlane : BaseCycle
 
     protected override List<CardAction> ActionsA(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new AStatus
             {
                 status = Status.droneShift,
                 statusAmount = upgrade == Upgrade.None ? 1 : 2,
                 targetPlayer = true,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new ABubbleField
             {
             },
-        };
+
+        ];
     }
 }

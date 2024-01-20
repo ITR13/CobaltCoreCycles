@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Common;
 
-[CardMeta(rarity = Rarity.common, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.common, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class Infinite : BaseCycle
 {
     public override string Name() => "More! More!";
@@ -15,13 +15,14 @@ public class Infinite : BaseCycle
 
     protected override List<CardAction> ActionsA(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new ADrawCard
             {
                 count = 1,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)
@@ -49,12 +50,13 @@ public class Infinite : BaseCycle
 
     protected override List<CardAction> ActionsC(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new ADrawCard
             {
                 count = 1,
             },
-        };
+
+        ];
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace CobaltCoreCycles.Cards.Uncommon;
 
-[CardMeta(rarity = Rarity.uncommon, upgradesTo = new[] { Upgrade.A, Upgrade.B })]
+[CardMeta(rarity = Rarity.uncommon, upgradesTo = [Upgrade.A, Upgrade.B])]
 public class Mill : BaseCycle
 {
     public override string Name() => "Mill";
@@ -15,13 +15,14 @@ public class Mill : BaseCycle
 
     protected override List<CardAction> ActionsA(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new ADiscard
             {
                 count = upgrade == Upgrade.A ? 2 : 1,
             },
-        };
+
+        ];
     }
 
     protected override List<CardAction> ActionsB(State s, Combat c)
@@ -55,12 +56,13 @@ public class Mill : BaseCycle
 
     protected override List<CardAction> ActionsC(State s, Combat c)
     {
-        return new List<CardAction>
-        {
+        return
+        [
             new ADrawCard
             {
                 count = 1,
             },
-        };
+
+        ];
     }
 }
