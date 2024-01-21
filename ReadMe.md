@@ -2,7 +2,7 @@
 Adds a new character named Cycles! Still a work in progress, any contributions are much appreciated!
 
 ## Installation
-1. Follow the install instructions over at https://github.com/ITR13/CobaltCoreEasyLoader/blob/main/README.md#installation
+1. Follow the install instructions for [EasyLoader](https://github.com/ITR13/CobaltCoreEasyLoader/blob/main/README.md#installation)
 2. Put [ITRsCycles.zip](https://github.com/ITR13/CobaltCoreCycles/releases/download/v0.1.0/ITRsCycles.zip) into your mods folder.
 
 ## Features
