@@ -74,14 +74,5 @@ public class Bonus : Artifact
                     );
                 break;
         }
-
-        if (Cycle > (doubleCycle ? 1 : 0))
-        {
-        }
-
-        if (Cycle >= (doubleCycle ? 4 : 2))
-        {
-            Cycle = 0;
-        }
     }
 }

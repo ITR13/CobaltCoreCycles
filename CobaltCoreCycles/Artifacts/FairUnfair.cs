@@ -16,7 +16,7 @@ public class FairUnfair : Artifact
 
         var doubleCycle = state.artifacts.Any(a => a is DoubleCycle);
 
-        Cycle += doubleCycle ? 1 : 2;
+        Cycle = (Cycle + (doubleCycle ? 1 : 2)) % 4;
         state
             .GetCurrentQueue()
             .QueueImmediate(

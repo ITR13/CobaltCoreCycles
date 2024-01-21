@@ -33,4 +33,4 @@ artifacts/doublecycle_desc,Don’t increase cycle every other cycle.
 artifacts/fairunfair_name,Fair / Unfair
 artifacts/fairunfair_desc,Cycles between the following effects: You gain 2 PowerDrive. Your opponent gains 2 PowerDrive.
 artifacts/powercycle_name,Powercycle
-artifacts/powercycle_desc,Gives you 1 PowerDrive every 3 turns.
+artifacts/powercycle_desc,Gives you 1 PowerDrive every 5 fights.
