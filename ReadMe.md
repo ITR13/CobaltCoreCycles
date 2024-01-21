@@ -3,7 +3,7 @@ Adds a new character named Cycles! Still a work in progress, any contributions a
 
 ## Installation
 1. Follow the install instructions over at https://github.com/ITR13/CobaltCoreEasyLoader/blob/main/README.md#installation
-2. Put [ITRsCycles.zip]() into your mods folder.
+2. Put [ITRsCycles.zip](https://github.com/ITR13/CobaltCoreCycles/releases/download/v0.1.0/ITRsCycles.zip) into your mods folder.
 
 ## Features
 All of Cycle's cards cycle between 2 or 3 states.
